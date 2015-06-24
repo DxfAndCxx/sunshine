@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>shell blog</title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/blog/index.css">
+
+    <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"}></script>
+    <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class='row'>
+            <div class='col-md-4'>
+                <div class="input-group input-group-div">
+                    <label for="basic-addon-title" class="col-sm-1 control-label">Title:</label>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" placeholder="please input title" id="basic-addon-title">
+                    </div>
+                </div>
+
+                <div class="input-group input-group-div">
+                    <label for="basic-addon-class" class="col-sm-1 control-label">Class:</label>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" placeholder="please input class" id="basic-addon-class">
+                    </div>
+                </div>
+
+                <div class="input-group input-group-div">
+                    <label for="basic-addon-tags" class="col-sm-1 control-label">Tags:</label>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" placeholder="please input tags" id="basic-addon-tags">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-md-10'>
+                <div class='col-md-4 input-group-div'>
+                    <label for="basic-addon-title" class="control-label">Context:</label>
+                </div>
+                <div class="col-sm-10">
+                    <textarea class="form-control context-textarea" rows="30"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class='col-md-10 group-div-margin-top'>
+                <div class='col-md-10'>
+                    <div class='col-md-10'></div>
+
+                    <div class='col-md-1'>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value="" class="publish-checkbox">Publish?
+                          </label>
+                        </div>
+                    </div>
+
+                    <div class='col-md-1 col-md-no-padding group-div-text-align-right'>
+                        <button class="btn btn-default submit-btn" type="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".submit-btn").click(function(){
+        var title = $("#basic-addon-title").val();
+        var tags = $("#basic-addon-tags").val();
+        var cls = $("#basic-addon-class").val();
+        var context = $(".context-textarea").val();
+        var publish = $(".publish-checkbox").prop("checked");
+
+        if (title == "")
+        {
+            alert("请输入标题");
+            return;
+        }
+        if(context.length < 20)
+        {
+            alert("文章内容过短");
+            return;
+        }
+
+        var data = {
+            "title":title,
+            "tags":tags,
+            "cls":cls,
+            "context":context,
+            "publish":publish,
+        };
+        $.ajax({
+            url:"/blog/article/",
+            type:"POST",
+            data:data,
+            success:function(data){
+                alert("添加成功");
+            }
+        })
+
+    });
+
+
+});
+
+
+</script>
+
+
+</body>
+</html>
+

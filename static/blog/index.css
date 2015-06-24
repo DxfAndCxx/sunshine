@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors 陈小雪 (shell_chen@yeah.net)
+ * @date    2015-06-04 16:59:59
+ * @version $Id$
+ */
+
+body{
+    font: normal 100% Helvetica, Arial, sans-serif;
+    min-width: 1250px;
+    height: 100%;
+    margin: 0;
+}
+#wapper{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.input-group-div{
+    margin-top:10px;
+    min-width: 600px;
+    width: 38%;
+}
+.input-group-span{
+    width: 10%;
+}
+.group-div-text-align-right{
+    text-align: right;
+}
+.col-md-no-padding{
+    padding: 0;
+}
+.group-div-margin-top{
+    margin-top:10px;
+}

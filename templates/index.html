@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>sweb</title>
+    <link rel="stylesheet" type="text/css" href="/static/loaders/loaders.css">
+    <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"}></script>
+    <script type="text/javascript" src="/static/loaders/loaders.css.js"></script>
+    <style type="text/css">
+    body{
+        background-color: #ffaaaa;
+    }
+    .content{
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        margin-top: 5%;
+    }
+    .inner-lodering{
+        margin-left: auto;
+        margin-right: auto;
+        height: 70px;
+        width: 500px;
+    }
+    </style>
+
+
+</head>
+
+<body>
+<div class='content'>
+    <div class= 'inner-lodering'>
+        <div class="loader-inner ball-spin-fade-loader"></div>
+    </div>
+
+    <div class= 'inner-lodering'>
+        <div class="loader-inner ball-scale-multiple"></div>
+    </div>
+
+    <div class= 'inner-lodering'>
+        <div class="loader-inner ball-grid-beat"></div>
+    </div>
+
+    <div class= 'inner-lodering'>
+        <div class="loader-inner ball-pulse"></div>
+    </div>
+
+    <div class="inner-loadering">
+        <div class="test-div">
+            <div></div>
+            <p></p>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $(".ball-spin-fade-loader").Loaders({proportion:0.5, backgroundcolor:"#ff00aa"});
+
+    $(".ball-scale-multiple").Loaders({proportion:1.5});
+    $(".ball-grid-beat").Loaders({proportion:0.5});
+
+    $(".ball-pulse").Loaders({proportion:1});
+    $(".test-div").Loaders({proportion:1, backgroundcolor:"#ffbbcc"});
+});
+
+</script>
+
+
+</body>
+</html>
