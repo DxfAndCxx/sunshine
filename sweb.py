@@ -43,5 +43,5 @@ def sunshine_wsgi():
     run_wsgi(app)
 
 if __name__ == "__main__":
-    sunshine_test()
+    sunshine_wsgi()
 
