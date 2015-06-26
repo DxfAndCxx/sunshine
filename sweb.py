@@ -14,7 +14,7 @@ for p in sys_path:
 
 from flask import Flask, render_template
 from config import load_config
-from flaskext import Sunshine
+from sunshine import Sunshine
 
 
 logging.basicConfig(level=logging.INFO,
@@ -42,6 +42,15 @@ def sunshine_wsgi():
     sunshine = Sunshine(app, plugin_dir)
     run_wsgi(app)
 
+def run():
+    mode = os.environ.get('MODE')
+    if mode:
+        sunshine_test()
+    else:
+        sunshine_wsgi()
+
+
+
 if __name__ == "__main__":
-    sunshine_wsgi()
+    run()
 

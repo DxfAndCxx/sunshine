@@ -9,19 +9,19 @@ import os
 
 from flask import render_template, request
 
-from flaskext import MyMethodView
+from sunshine import ClassViews
 from setting import STOREPATH
 from publish import BlogData
 
 name = "blog"
 bp = "this is bp"
 
-class Blog(MyMethodView):
+class Blog(ClassViews):
     def GET(self):
         return render_template("blog/index.html")
 
 
-class AddArticle(MyMethodView):
+class Article(ClassViews):
     def get(self):
         return render_template("blog/add.html")
 
@@ -43,13 +43,15 @@ class AddArticle(MyMethodView):
 
         return "sucess!"
 
+# class Articles(ClassViews)
+
 
 
 
 
 urls = (
         "/",           Blog,
-        "/add/",   AddArticle,
+        "/add/",   Article,
     )
 
 
