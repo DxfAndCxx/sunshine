@@ -21,7 +21,7 @@ class Blog(MyMethodView):
         return render_template("blog/index.html")
 
 
-class Article(MyMethodView):
+class AddArticle(MyMethodView):
     def get(self):
         return render_template("blog/add.html")
 
@@ -43,18 +43,13 @@ class Article(MyMethodView):
 
         return "sucess!"
 
-class Articles(MyMethodView):
-    def get(self):
-        bd = BlogData(STOREPATH)
-        return "s"
 
 
 
 
 urls = (
         "/",           Blog,
-        "/article/",   Article,
-        "/articles/",  Articles,
+        "/add/",   AddArticle,
     )
 
 
