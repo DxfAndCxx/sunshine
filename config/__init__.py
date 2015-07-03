@@ -7,7 +7,7 @@ class BaseConfig(object):
     DEBUG = True
     TESTING = False
     PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
-    SECRET_KEY = "fraudmetrixlabs"
+    SECRET_KEY = "sunshine"
     THREADED = True
 
 
