@@ -21,7 +21,8 @@ start()
         echo "\033[34m sweb.py is running"
         exit 0
     fi
-
+    filepath=$(cd "$(dirname "$0")";pwd)
+    cd $filepath
     nohup python sweb.py &
     sleep 1
 }
