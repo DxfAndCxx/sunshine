@@ -81,7 +81,9 @@ class Chapters(ClassViews):
         BD.add(Id, infos, tex)
         return "0"
 
-    def UPDATE(self, Id):
+    def PUT(self):
+        print dir(request)
+        Id = request.args.get("id")
         data = json.loads(request.data).get("tex","")
         dir_path = os.path.join(STOREPATH, str(Id))
 
@@ -97,7 +99,7 @@ class Chapters(ClassViews):
 
 
 urls = (
-        "/",           Blog,
+        "/",            Blog,
         "/chapters/",   Chapters,
     )
 
