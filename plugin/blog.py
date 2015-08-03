@@ -14,9 +14,8 @@ from flask import render_template, request
 from sunshine import ClassViews
 from setting import STOREPATH
 from publish import BlogData
-
+import shutil
 name = "blog"
-bp = "this is bp"
 
 def setid():
     return int(time.time() - 1419598800)
@@ -82,7 +81,6 @@ class Chapters(ClassViews):
         return "0"
 
     def PUT(self):
-        print dir(request)
         Id = request.args.get("id")
         data = json.loads(request.data).get("tex","")
         dir_path = os.path.join(STOREPATH, str(Id))
@@ -95,7 +93,16 @@ class Chapters(ClassViews):
         BD.update(Id, infos, tex)
         return "0"
 
+    def DELETE(self):
+        ID = request.args.get("id")
+        dir_path = os.path.join(STOREPATH, str(ID))
 
+        if not os.path.isdir(dir_path):
+            return "-1"
+
+        shutil.rmtree(dir_path)
+        BD = BlogData(STOREPATH)
+        return BD.delete(ID)
 
 
 urls = (
