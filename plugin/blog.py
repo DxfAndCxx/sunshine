@@ -83,10 +83,10 @@ class Chapters(ClassViews):
         Id = request.args.get("id")
         data = json.loads(request.data).get("tex","")
         dir_path = os.path.join(STOREPATH, str(Id))
-	
+
         if not os.path.isdir(dir_path):
             logging.info("%s: is not exit"%dir_path)
-	    return "-1"   #路径不存在
+            return "-1"   #路径不存在
         file_path = os.path.join(dir_path, "index.md")
 
         with open(file_path,"w") as fp:
