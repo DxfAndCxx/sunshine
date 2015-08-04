@@ -78,7 +78,7 @@ class Chapters(ClassViews):
         (infos, tex) = get_info(file_path)
         BD = BlogData(STOREPATH)
         BD.add(Id, infos, tex)
-        return "0"
+        return str(Id)
 
     def PUT(self):
         Id = request.args.get("id")
@@ -91,7 +91,7 @@ class Chapters(ClassViews):
         (infos, tex) = get_info(file_path)
         BD = BlogData(STOREPATH)
         BD.update(Id, infos, tex)
-        return "0"
+        return str(Id)
 
     def DELETE(self):
         ID = request.args.get("id")
