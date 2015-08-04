@@ -79,7 +79,7 @@ class Chapters(ClassViews):
         (infos, tex) = get_info(file_path)
         BD = BlogData(STOREPATH)
         BD.add(Id, infos, tex)
-        return "0"
+        return str(Id)
 
     def PUT(self):
         print dir(request)
@@ -93,7 +93,7 @@ class Chapters(ClassViews):
         (infos, tex) = get_info(file_path)
         BD = BlogData(STOREPATH)
         BD.update(Id, infos, tex)
-        return "0"
+        return str(Id)
 
 
 
