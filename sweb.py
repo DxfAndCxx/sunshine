@@ -19,7 +19,7 @@ from sunshine import Sunshine
 
 logging.basicConfig(level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s',
-    #filename=".log",
+    filename=".log",
     )
 
 def run_application(app):

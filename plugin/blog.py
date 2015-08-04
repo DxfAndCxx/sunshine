@@ -77,8 +77,7 @@ class Chapters(ClassViews):
 
         (infos, tex) = get_info(file_path)
         BD = BlogData(STOREPATH)
-        BD.add(Id, infos, tex)
-        return str(Id)
+        return BD.add(str(Id), infos, tex)
 
     def PUT(self):
         Id = request.args.get("id")
@@ -88,10 +87,13 @@ class Chapters(ClassViews):
         if not os.path.isdir(dir_path):
             return "-1"   #路径不存在
         file_path = os.path.join(dir_path, "index.md")
+
+        with open(file_path,"w") as fp:
+            fp.write(data)
+
         (infos, tex) = get_info(file_path)
         BD = BlogData(STOREPATH)
-        BD.update(Id, infos, tex)
-        return str(Id)
+        return BD.update(str(Id), infos, tex)
 
     def DELETE(self):
         ID = request.args.get("id")
@@ -102,7 +104,7 @@ class Chapters(ClassViews):
 
         shutil.rmtree(dir_path)
         BD = BlogData(STOREPATH)
-        return BD.delete(ID)
+        return BD.delete(str(ID))
 
 
 urls = (
